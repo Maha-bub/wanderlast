@@ -30,7 +30,7 @@ export function Banner() {
           Discover Your
           <br className="hidden sm:inline" /> Next Adventure
         </h1>
-        <p className="mt-5 max-w-[34rem] text-base leading-relaxed text-white/90 sm:text-[17px]">
+        <p className="mt-5 max-w-136 text-base leading-relaxed text-white/90 sm:text-[17px]">
           Explore breathtaking destinations and create unforgettable memories
           with our curated travel experiences.
         </p>

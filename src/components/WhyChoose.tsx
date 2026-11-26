@@ -25,7 +25,7 @@ const reasons = [
 export function WhyChoose() {
   return (
     <section className="bg-[#E0F7FA] py-16">
-      <div className="mx-auto max-w-[1080px] px-4">
+      <div className="mx-auto max-w-270 px-4">
         <div className="p-6 text-center md:p-8">
           <h2
             className={`${playfair.className} text-4xl text-neutral-950 md:text-5xl`}

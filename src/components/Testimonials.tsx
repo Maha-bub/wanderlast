@@ -30,7 +30,7 @@ const testimonials = [
 export function Testimonials() {
   return (
     <section className="bg-white py-16">
-      <div className="mx-auto max-w-[1080px] px-4">
+      <div className="mx-auto max-w-270 px-4">
         <div className="p-6 md:p-8">
           <Carousel opts={{ align: "start" }}>
             <div className="mb-6 flex items-center justify-between gap-4">
@@ -65,7 +65,7 @@ export function Testimonials() {
                         </p>
                       </figcaption>
                     </div>
-                    <div className="relative w-[140px] shrink-0 self-stretch overflow-hidden md:w-[36%]">
+                    <div className="relative w-35 shrink-0 self-stretch overflow-hidden md:w-[36%]">
                       <Image
                         src={t.image}
                         alt={t.name}

@@ -1,4 +1,6 @@
-import type { ReactNode } from "react";
+"use client";
+
+import type { FormEvent, ReactNode } from "react";
 import Link from "next/link";
 import { Save, Trash2 } from "lucide-react";
 import { cn } from "cn";
@@ -15,6 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+
 
 const categories = [
   { value: "beach", label: "Beach" },
@@ -45,6 +48,26 @@ function Field({
   );
 }
 
+async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+
+  const formData = new FormData(event.currentTarget);
+  const travelPackage = Object.fromEntries(
+    formData.entries()
+  ) as Record<string, string>;
+
+  const res = await fetch(`http://localhost:8000/add-destination`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(travelPackage)
+  })
+  const data =await res.json()
+  console.log(data)
+  // console.log("Travel package:", travelPackage);
+}
+
 export default function AddDestinationPage() {
   return (
     <main className="min-h-screen bg-white px-6 py-8 md:px-14">
@@ -55,9 +78,9 @@ export default function AddDestinationPage() {
       </h1>
 
       <div className="mt-8 flex justify-center">
-        <Card className="w-full max-w-[560px] rounded-lg border border-neutral-200 py-7 shadow-sm ring-0">
+        <Card className="w-full max-w-140 rounded-lg border border-neutral-200 py-7 shadow-sm ring-0">
           <CardContent className="px-7">
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <Field label="Destination Name" htmlFor="destination-name">
                 <Input
                   id="destination-name"
